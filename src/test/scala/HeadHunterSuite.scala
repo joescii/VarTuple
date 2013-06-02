@@ -1,6 +1,5 @@
 import org.scalatest.WordSpec
 import org.scalatest.matchers.ShouldMatchers
-import shapeless._
 
 class HeadHunterSuite extends WordSpec with ShouldMatchers {
   "HeadHunterOption" should {
