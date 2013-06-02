@@ -8,13 +8,13 @@ object HeadHunter {
   def get[A](a:Seq[A]):Option[A] = 
     a.headOption
     
-  def get[T <: Product, L <: HList](t : T)
-    (implicit hl : HListerAux[T, L], 
-     mapper : Mapper[header.type, L],
-     tupler : Tupler[L]) = {
+  def get[InT <: Product, OutT <: Product, InL <: HList, OutL <: HList](t : InT)
+    (implicit hl : HListerAux[InT, InL], 
+     mapper : MapperAux[header.type, InL, OutL],
+     tupler : TuplerAux[OutL, OutT]) = {
     val h = hl(t)
     val o = h map header
-//    o.tupled  // <-- How can I make this work?
-    o
+    val r = o.tupled  
+    r
   }
 }
