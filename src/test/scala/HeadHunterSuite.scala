@@ -1,5 +1,8 @@
 import org.scalatest.WordSpec
 import org.scalatest.matchers.ShouldMatchers
+import shapeless._
+import Tuples._
+import Nat._
 
 class HeadHunterSuite extends WordSpec with ShouldMatchers {
   "HeadHunter" should {
@@ -8,10 +11,10 @@ class HeadHunterSuite extends WordSpec with ShouldMatchers {
       val t1:Option[Int] = get(Seq(1,2,3))
       t1 should equal (Some(1))
       
-      val t2:(Option[String], Option[Int]) = get(Seq("strs","str2"), Seq(4,5,6)) 
+      val t2:(Option[String], Option[Int]) = get((Seq("strs","str2"), Seq(4,5,6))).tupled 
       t2 should equal ((Some("strs"),Some(4)))
       
-      val t3:(Option[Boolean], Option[String], Option[Int]) = get(Seq(true,false,true), Seq("str1","str2"), Seq(3)) 
+      val t3:(Option[Boolean], Option[String], Option[Int]) = get(Seq(true,false,true), Seq("str1","str2"), Seq(3)).tupled 
       t3 should equal ((Some(true), Some("str1"), Some(3)))
     }
   }
