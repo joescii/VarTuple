@@ -14,7 +14,7 @@ object HeadHunter {
      tupler : Tupler[L]) = {
     val h = hl(t)
     val o = h map header
-//    o.tupled
+//    o.tupled  // <-- How can I make this work?
     o
   }
 }

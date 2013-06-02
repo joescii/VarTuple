@@ -1,8 +1,6 @@
 import org.scalatest.WordSpec
 import org.scalatest.matchers.ShouldMatchers
 import shapeless._
-import Tuples._
-import Nat._
 
 class HeadHunterSuite extends WordSpec with ShouldMatchers {
   "HeadHunter" should {
